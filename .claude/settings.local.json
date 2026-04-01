@@ -1,6 +1,0 @@
-{
-  "enabledMcpjsonServers": [
-    "xcode-mcpbridge"
-  ],
-  "enableAllProjectMcpServers": true
-}
