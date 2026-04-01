@@ -1,0 +1,9 @@
+{
+  "name": "xcode-mcpbridge",
+  "version": "0.1.0",
+  "description": "Claude Code plugin for integrating with Xcode via MCP mcpbridge.",
+  "author": {
+    "name": "Reda Lemeden",
+    "email": "git@redalemeden.com"
+  }
+}
