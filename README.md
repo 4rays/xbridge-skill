@@ -1,6 +1,6 @@
 # xcode-mcpbridge
 
-Claude Code plugin for integrating with Xcode via Apple's official Model Context Protocol (MCP) server.
+Claude Code plugin and companion skill for integrating with Xcode via Apple's official Model Context Protocol (MCP) bridge.
 
 Enables AI agents to build, test, and manage Xcode projects using Apple's native `xcrun mcpbridge` command.
 
@@ -10,25 +10,21 @@ Enables AI agents to build, test, and manage Xcode projects using Apple's native
 claude --plugin-dir /path/to/xcode-mcpbridge
 ```
 
+Validate the plugin package:
+
+```bash
+claude plugins validate /path/to/xcode-mcpbridge
+```
+
 ## Quick Start
 
 ### 1. Enable Xcode MCP Server
 
 Open **Xcode > Settings** (⌘,) → **Intelligence** → Enable **Xcode Tools** under Model Context Protocol.
 
-### 2. Connect Your AI Tool
+### 2. Load the Plugin in Claude Code
 
-**Claude Code:**
-```bash
-claude mcp add --transport stdio xcode -- xcrun mcpbridge
-claude mcp list  # Verify
-```
-
-**Codex:**
-```bash
-codex mcp add xcode -- xcrun mcpbridge
-codex mcp list  # Verify
-```
+The plugin bundles a `.mcp.json` that launches `xcrun mcpbridge`, so you do not need to run `claude mcp add` separately when using this repository as a Claude plugin.
 
 ### 3. Open Your Project
 
@@ -41,6 +37,22 @@ open MyApp.xcworkspace
 ### 4. Grant Permission
 
 When the MCP client first connects, Xcode will display a permission dialog. Click **Allow**.
+
+## Manual Setup for Other Clients
+
+### Claude Code without the plugin
+
+```bash
+claude mcp add --transport stdio xcode -- xcrun mcpbridge
+claude mcp list
+```
+
+### Codex
+
+```bash
+codex mcp add xcode -- xcrun mcpbridge
+codex mcp list
+```
 
 ## Available MCP Tools
 
@@ -95,15 +107,12 @@ Create an `AGENTS.md` or `CLAUDE.md` file in your project root:
 
 ## Configuration
 
-`.mcp.json`:
+Bundled plugin `.mcp.json`:
 ```json
 {
-  "mcpServers": {
-    "xcode-mcpbridge": {
-      "type": "stdio",
-      "command": "xcrun",
-      "args": ["mcpbridge"]
-    }
+  "xcode-mcpbridge": {
+    "command": "xcrun",
+    "args": ["mcpbridge"]
   }
 }
 ```
@@ -126,4 +135,3 @@ Full tool reference: `skills/xcode-mcp/SKILL.md`
 ## License
 
 MIT
-

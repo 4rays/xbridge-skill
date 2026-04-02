@@ -1,0 +1,22 @@
+{
+  "name": "xcode-mcpbridge",
+  "version": "1.1.0",
+  "description": "Bundles Apple's Xcode MCP bridge for Claude Code and documents the Xcode tools workflow.",
+  "author": {
+    "name": "Reda Lemeden",
+    "email": "git@redalemeden.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kaishin/xcode-mcpbridge",
+  "repository": "https://github.com/kaishin/xcode-mcpbridge",
+  "keywords": [
+    "xcode",
+    "mcp",
+    "ios",
+    "macos",
+    "swift",
+    "build",
+    "test"
+  ],
+  "mcpServers": "./.mcp.json"
+}

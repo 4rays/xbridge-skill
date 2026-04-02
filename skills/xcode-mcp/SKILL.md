@@ -18,7 +18,11 @@ Open Xcode and enable the MCP server:
 
 ### 2. Connect Your AI Tool
 
-#### For Claude Code:
+#### For Claude Code with this plugin:
+
+If this repository is loaded as a Claude Code plugin, the bundled `.mcp.json` already launches `xcrun mcpbridge`. No extra `claude mcp add` step is required.
+
+#### For Claude Code without the plugin:
 
 ```bash
 claude mcp add --transport stdio xcode -- xcrun mcpbridge
@@ -176,13 +180,11 @@ For edge cases with multiple Xcode instances:
 
 ```json
 {
-  "mcpServers": {
-    "xcode-tools": {
-      "command": "xcrun",
-      "args": ["mcpbridge"],
-      "env": {
-        "MCP_XCODE_PID": "12345"
-      }
+  "xcode-tools": {
+    "command": "xcrun",
+    "args": ["mcpbridge"],
+    "env": {
+      "MCP_XCODE_PID": "12345"
     }
   }
 }
