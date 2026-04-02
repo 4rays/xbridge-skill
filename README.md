@@ -16,6 +16,13 @@ Validate the plugin package:
 claude plugins validate /path/to/xcode-mcpbridge
 ```
 
+Install from the bundled local marketplace:
+
+```bash
+/plugin marketplace add /path/to/xcode-mcpbridge
+/plugin install xcode-mcpbridge@xcode-mcpbridge-marketplace
+```
+
 ## Quick Start
 
 ### 1. Enable Xcode MCP Server
