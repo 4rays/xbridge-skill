@@ -63,12 +63,12 @@ codex mcp list
 
 ## Available MCP Tools
 
-| Category | Tools |
-|----------|-------|
+| Category            | Tools                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | **File Operations** | `XcodeRead`, `XcodeWrite`, `XcodeUpdate`, `XcodeGlob`, `XcodeGrep`, `XcodeLS`, `XcodeMakeDir`, `XcodeRM`, `XcodeMV` |
-| **Project Info** | `XcodeListWindows`, `XcodeListNavigatorIssues`, `XcodeRefreshCodeIssuesInFile` |
-| **Build & Test** | `BuildProject`, `GetBuildLog`, `RunAllTests`, `RunSomeTests`, `GetTestList` |
-| **Advanced** | `ExecuteSnippet`, `RenderPreview`, `DocumentationSearch` |
+| **Project Info**    | `XcodeListWindows`, `XcodeListNavigatorIssues`, `XcodeRefreshCodeIssuesInFile`                                      |
+| **Build & Test**    | `BuildProject`, `GetBuildLog`, `RunAllTests`, `RunSomeTests`, `GetTestList`                                         |
+| **Advanced**        | `ExecuteSnippet`, `RenderPreview`, `DocumentationSearch`                                                            |
 
 ## Usage Examples
 
@@ -104,17 +104,20 @@ Create an `AGENTS.md` or `CLAUDE.md` file in your project root:
 # Project Context
 
 ## Build System
+
 - iOS 26 SwiftUI project
 - Main scheme: MyApp
 - Use BuildProject to compile
 
 ## Testing
+
 - Run tests with RunAllTests
 ```
 
 ## Configuration
 
 Bundled plugin `.mcp.json`:
+
 ```json
 {
   "xcode-mcpbridge": {
