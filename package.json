@@ -28,13 +28,13 @@
     "email": "git@redalemeden.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/kaishin/xcode-mcpbridge",
+  "homepage": "https://github.com/4rays/xcode-mcpbridge",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kaishin/xcode-mcpbridge.git"
+    "url": "https://github.com/4rays/xcode-mcpbridge.git"
   },
   "bugs": {
-    "url": "https://github.com/kaishin/xcode-mcpbridge/issues"
+    "url": "https://github.com/4rays/xcode-mcpbridge/issues"
   },
   "files": [
     "skills/",

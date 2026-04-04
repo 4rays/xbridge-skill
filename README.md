@@ -12,13 +12,13 @@ Use [npx skills](https://github.com/vercel-labs/skills) to install skills direct
 
 ```bash
 # Install all skills
-npx skills add kaishin/xcode-mcpbridge
+npx skills add 4rays/xcode-mcpbridge
 
 # Install specific skills
-npx skills add kaishin/xcode-mcpbridge --skill xcode-mcp
+npx skills add 4rays/xcode-mcpbridge --skill xcode-mcp
 
 # List available skills
-npx skills add kaishin/xcode-mcpbridge --list
+npx skills add 4rays/xcode-mcpbridge --list
 ```
 
 This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
@@ -29,7 +29,7 @@ Install via Claude Code's built-in plugin system:
 
 ```bash
 # Add the marketplace
-/plugin marketplace add kaishin/xcode-mcpbridge
+/plugin marketplace add 4rays/xcode-mcpbridge
 
 # Install the plugin
 /plugin install xcode-mcpbridge
@@ -52,7 +52,7 @@ claude plugins validate /path/to/xcode-mcpbridge
 Clone the entire repo and copy the skills folder:
 
 ```bash
-git clone https://github.com/kaishin/xcode-mcpbridge.git
+git clone https://github.com/4rays/xcode-mcpbridge.git
 cp -r xcode-mcpbridge/skills/* .agents/skills/
 ```
 
@@ -61,7 +61,7 @@ cp -r xcode-mcpbridge/skills/* .agents/skills/
 Add as a submodule for easy updates:
 
 ```bash
-git submodule add https://github.com/kaishin/xcode-mcpbridge.git .agents/xcode-mcpbridge
+git submodule add https://github.com/4rays/xcode-mcpbridge.git .agents/xcode-mcpbridge
 ```
 
 Then reference skills from `.agents/xcode-mcpbridge/skills/`.
@@ -78,13 +78,13 @@ Use [SkillKit](https://github.com/rohitg00/skillkit) to install skills across mu
 
 ```bash
 # Install all skills
-npx skillkit install kaishin/xcode-mcpbridge
+npx skillkit install 4rays/xcode-mcpbridge
 
 # Install specific skills
-npx skillkit install kaishin/xcode-mcpbridge --skill xcode-mcp
+npx skillkit install 4rays/xcode-mcpbridge --skill xcode-mcp
 
 # List available skills
-npx skillkit install kaishin/xcode-mcpbridge --list
+npx skillkit install 4rays/xcode-mcpbridge --list
 ```
 
 ## Quick Start

@@ -3,12 +3,12 @@
 /**
  * xcode-mcpbridge Installer
  * Supports multiple installation methods:
- * 1. npx skills add kaishin/xcode-mcpbridge
+ * 1. npx skills add 4rays/xcode-mcpbridge
  * 2. /plugin marketplace add / /plugin install
  * 3. Clone and copy
  * 4. Git submodule
  * 5. Fork and customize
- * 6. npx skillkit install kaishin/xcode-mcpbridge
+ * 6. npx skillkit install 4rays/xcode-mcpbridge
  */
 
 const fs = require('fs');
