@@ -1,0 +1,47 @@
+{
+  "name": "xcode-mcpbridge",
+  "version": "1.1.0",
+  "description": "Bundles Apple's Xcode MCP bridge for Claude Code and documents the Xcode tools workflow.",
+  "main": "install.js",
+  "bin": {
+    "xcode-mcpbridge-install": "./install.js"
+  },
+  "scripts": {
+    "install": "node install.js",
+    "postinstall": "node install.js"
+  },
+  "keywords": [
+    "xcode",
+    "mcp",
+    "ios",
+    "macos",
+    "swift",
+    "build",
+    "test",
+    "claude",
+    "claude-code",
+    "skill",
+    "agent-skill"
+  ],
+  "author": {
+    "name": "Reda Lemeden",
+    "email": "git@redalemeden.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kaishin/xcode-mcpbridge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaishin/xcode-mcpbridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kaishin/xcode-mcpbridge/issues"
+  },
+  "files": [
+    "skills/",
+    ".claude-plugin/",
+    ".mcp.json",
+    "install.js",
+    "README.md",
+    "LICENSE"
+  ]
+}

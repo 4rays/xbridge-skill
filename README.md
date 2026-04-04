@@ -6,6 +6,37 @@ Enables AI agents to build, test, and manage Xcode projects using Apple's native
 
 ## Installation
 
+### Option 1: CLI Install (Recommended)
+
+Use [npx skills](https://github.com/vercel-labs/skills) to install skills directly:
+
+```bash
+# Install all skills
+npx skills add kaishin/xcode-mcpbridge
+
+# Install specific skills
+npx skills add kaishin/xcode-mcpbridge --skill xcode-mcp
+
+# List available skills
+npx skills add kaishin/xcode-mcpbridge --list
+```
+
+This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
+
+### Option 2: Claude Code Plugin
+
+Install via Claude Code's built-in plugin system:
+
+```bash
+# Add the marketplace
+/plugin marketplace add kaishin/xcode-mcpbridge
+
+# Install the plugin
+/plugin install xcode-mcpbridge
+```
+
+Or load directly from a local path:
+
 ```bash
 claude --plugin-dir /path/to/xcode-mcpbridge
 ```
@@ -16,11 +47,44 @@ Validate the plugin package:
 claude plugins validate /path/to/xcode-mcpbridge
 ```
 
-Install from the bundled local marketplace:
+### Option 3: Clone and Copy
+
+Clone the entire repo and copy the skills folder:
 
 ```bash
-/plugin marketplace add /path/to/xcode-mcpbridge
-/plugin install xcode-mcpbridge@xcode-mcpbridge-marketplace
+git clone https://github.com/kaishin/xcode-mcpbridge.git
+cp -r xcode-mcpbridge/skills/* .agents/skills/
+```
+
+### Option 4: Git Submodule
+
+Add as a submodule for easy updates:
+
+```bash
+git submodule add https://github.com/kaishin/xcode-mcpbridge.git .agents/xcode-mcpbridge
+```
+
+Then reference skills from `.agents/xcode-mcpbridge/skills/`.
+
+### Option 5: Fork and Customize
+
+1. Fork this repository
+2. Customize skills for your specific needs
+3. Clone your fork into your projects
+
+### Option 6: SkillKit (Multi-Agent)
+
+Use [SkillKit](https://github.com/rohitg00/skillkit) to install skills across multiple AI agents (Claude Code, Cursor, Copilot, etc.):
+
+```bash
+# Install all skills
+npx skillkit install kaishin/xcode-mcpbridge
+
+# Install specific skills
+npx skillkit install kaishin/xcode-mcpbridge --skill xcode-mcp
+
+# List available skills
+npx skillkit install kaishin/xcode-mcpbridge --list
 ```
 
 ## Quick Start
