@@ -193,6 +193,7 @@ Bundled plugin `.mcp.json`:
 
 ## Troubleshooting
 
+- **No tools available / Connection appears successful but tools don't appear**: This means the permission dialog was dismissed without granting access. In **Xcode > Settings > Intelligence > Model Context Protocol**, revoke access for the process, then reconnect to trigger the permission dialog again and click **Allow**.
 - **Connection fails**: Ensure Xcode is running with a project open, and Xcode Tools MCP is enabled in Settings
 - **"Tool XcodeListWindows has an output schema but did not return structured content"**: Bug in Xcode 26.3 RC 1. Upgrade to RC 2+
 - **Multiple Xcode instances**: The bridge auto-detects; or set `MCP_XCODE_PID` env var

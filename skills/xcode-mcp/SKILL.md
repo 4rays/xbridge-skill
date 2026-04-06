@@ -200,6 +200,16 @@ Get PID with: `pgrep -x Xcode`
 
 **Solution**: This was a bug in Xcode 26.3 RC 1. Upgrade to RC 2 or later.
 
+### Issue: No tools available / Tools don't appear
+
+**Cause**: The permission dialog was dismissed without granting access.
+
+**Solution**:
+1. Open **Xcode > Settings > Intelligence > Model Context Protocol**
+2. Find the process (e.g., `claude`, `codex`) and revoke its access
+3. Reconnect to trigger the permission dialog again
+4. Click **Allow** when the dialog appears
+
 ### Issue: Connection fails / Permission denied
 
 **Solution**: 
