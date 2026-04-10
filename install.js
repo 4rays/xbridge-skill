@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * xcode-mcpbridge Installer
+ * xhammer-skill Installer
  * Supports multiple installation methods:
- * 1. npx skills add 4rays/xcode-mcpbridge
+ * 1. npx skills add 4rays/xhammer-skill
  * 2. /plugin marketplace add / /plugin install
  * 3. Clone and copy
  * 4. Git submodule
  * 5. Fork and customize
- * 6. npx skillkit install 4rays/xcode-mcpbridge
+ * 6. npx skillkit install 4rays/xhammer-skill
  */
 
 const fs = require('fs');
@@ -97,7 +97,7 @@ function listSkills(skillsDir) {
 }
 
 function install() {
-  console.log('📦 xcode-mcpbridge Installer\n');
+  console.log('📦 xhammer-skill Installer\n');
 
   const dirs = getTargetDirs();
   const scriptDir = __dirname;

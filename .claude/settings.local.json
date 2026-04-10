@@ -1,6 +1,6 @@
 {
   "enabledMcpjsonServers": [
-    "xcode-mcpbridge"
+    "xhammer-skill"
   ],
   "enableAllProjectMcpServers": true
 }

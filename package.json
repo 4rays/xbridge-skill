@@ -1,10 +1,10 @@
 {
-  "name": "xcode-mcpbridge",
+  "name": "xhammer-skill",
   "version": "1.1.0",
   "description": "Bundles Apple's Xcode MCP bridge for Claude Code and documents the Xcode tools workflow.",
   "main": "install.js",
   "bin": {
-    "xcode-mcpbridge-install": "./install.js"
+    "xhammer-skill-install": "./install.js"
   },
   "scripts": {
     "install": "node install.js",
@@ -28,13 +28,13 @@
     "email": "git@redalemeden.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/4rays/xcode-mcpbridge",
+  "homepage": "https://github.com/4rays/xhammer-skill",
   "repository": {
     "type": "git",
-    "url": "https://github.com/4rays/xcode-mcpbridge.git"
+    "url": "https://github.com/4rays/xhammer-skill.git"
   },
   "bugs": {
-    "url": "https://github.com/4rays/xcode-mcpbridge/issues"
+    "url": "https://github.com/4rays/xhammer-skill/issues"
   },
   "files": [
     "skills/",

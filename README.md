@@ -1,4 +1,4 @@
-# xcode-mcpbridge
+# xhammer-skill
 
 Claude Code plugin and companion skill for integrating with Xcode via Apple's official Model Context Protocol (MCP) bridge.
 
@@ -12,13 +12,13 @@ Use [npx skills](https://github.com/vercel-labs/skills) to install skills direct
 
 ```bash
 # Install all skills
-npx skills add 4rays/xcode-mcpbridge
+npx skills add 4rays/xhammer-skill
 
 # Install specific skills
-npx skills add 4rays/xcode-mcpbridge --skill xcode-mcp
+npx skills add 4rays/xhammer-skill --skill xcode-mcp
 
 # List available skills
-npx skills add 4rays/xcode-mcpbridge --list
+npx skills add 4rays/xhammer-skill --list
 ```
 
 This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
@@ -29,22 +29,22 @@ Install via Claude Code's built-in plugin system:
 
 ```bash
 # Add the marketplace
-/plugin marketplace add 4rays/xcode-mcpbridge
+/plugin marketplace add 4rays/xhammer-skill
 
 # Install the plugin
-/plugin install xcode-mcpbridge
+/plugin install xhammer-skill
 ```
 
 Or load directly from a local path:
 
 ```bash
-claude --plugin-dir /path/to/xcode-mcpbridge
+claude --plugin-dir /path/to/xhammer-skill
 ```
 
 Validate the plugin package:
 
 ```bash
-claude plugins validate /path/to/xcode-mcpbridge
+claude plugins validate /path/to/xhammer-skill
 ```
 
 ### Option 3: Clone and Copy
@@ -52,8 +52,8 @@ claude plugins validate /path/to/xcode-mcpbridge
 Clone the entire repo and copy the skills folder:
 
 ```bash
-git clone https://github.com/4rays/xcode-mcpbridge.git
-cp -r xcode-mcpbridge/skills/* .agents/skills/
+git clone https://github.com/4rays/xhammer-skill.git
+cp -r xhammer-skill/skills/* .agents/skills/
 ```
 
 ### Option 4: Git Submodule
@@ -61,10 +61,10 @@ cp -r xcode-mcpbridge/skills/* .agents/skills/
 Add as a submodule for easy updates:
 
 ```bash
-git submodule add https://github.com/4rays/xcode-mcpbridge.git .agents/xcode-mcpbridge
+git submodule add https://github.com/4rays/xhammer-skill.git .agents/xhammer-skill
 ```
 
-Then reference skills from `.agents/xcode-mcpbridge/skills/`.
+Then reference skills from `.agents/xhammer-skill/skills/`.
 
 ### Option 5: Fork and Customize
 
@@ -78,13 +78,13 @@ Use [SkillKit](https://github.com/rohitg00/skillkit) to install skills across mu
 
 ```bash
 # Install all skills
-npx skillkit install 4rays/xcode-mcpbridge
+npx skillkit install 4rays/xhammer-skill
 
 # Install specific skills
-npx skillkit install 4rays/xcode-mcpbridge --skill xcode-mcp
+npx skillkit install 4rays/xhammer-skill --skill xcode-mcp
 
 # List available skills
-npx skillkit install 4rays/xcode-mcpbridge --list
+npx skillkit install 4rays/xhammer-skill --list
 ```
 
 ## Quick Start
@@ -184,7 +184,7 @@ Bundled plugin `.mcp.json`:
 
 ```json
 {
-  "xcode-mcpbridge": {
+  "xhammer-skill": {
     "command": "xcrun",
     "args": ["mcpbridge"]
   }
