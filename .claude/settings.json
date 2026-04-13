@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xhammer *)",
+      "Bash(git -C /Users/kaishin/Developer/Spikes/xhammer-skill status)",
+      "Bash(git -C /Users/kaishin/Developer/Spikes/xhammer-skill diff HEAD)",
+      "Bash(git -C /Users/kaishin/Developer/Spikes/xhammer-skill log --oneline -5)"
+    ]
+  }
+}
