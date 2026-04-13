@@ -1,21 +1,19 @@
 # xhammer-skill
 
-Claude Code plugin and companion skill for integrating with Xcode via Apple's official Model Context Protocol (MCP) bridge.
+Claude Code plugin and companion skill for interacting with Xcode projects.
 
-Enables AI agents to build, test, and manage Xcode projects using Apple's native `xcrun mcpbridge` command.
+The preferred integration is the **xhammer CLI** — a standalone tool that communicates with Xcode without triggering a permission dialog on every new session. The Xcode MCP bridge (`xcrun mcpbridge`) is supported as a manual fallback.
 
 ## Installation
 
 ### Option 1: CLI Install (Recommended)
-
-Use [npx skills](https://github.com/vercel-labs/skills) to install skills directly:
 
 ```bash
 # Install all skills
 npx skills add 4rays/xhammer-skill
 
 # Install specific skills
-npx skills add 4rays/xhammer-skill --skill xcode-mcp
+npx skills add 4rays/xhammer-skill --skill xhammer
 
 # List available skills
 npx skills add 4rays/xhammer-skill --list
@@ -24,8 +22,6 @@ npx skills add 4rays/xhammer-skill --list
 This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
 
 ### Option 2: Claude Code Plugin
-
-Install via Claude Code's built-in plugin system:
 
 ```bash
 # Add the marketplace
@@ -41,15 +37,7 @@ Or load directly from a local path:
 claude --plugin-dir /path/to/xhammer-skill
 ```
 
-Validate the plugin package:
-
-```bash
-claude plugins validate /path/to/xhammer-skill
-```
-
 ### Option 3: Clone and Copy
-
-Clone the entire repo and copy the skills folder:
 
 ```bash
 git clone https://github.com/4rays/xhammer-skill.git
@@ -58,44 +46,34 @@ cp -r xhammer-skill/skills/* .agents/skills/
 
 ### Option 4: Git Submodule
 
-Add as a submodule for easy updates:
-
 ```bash
 git submodule add https://github.com/4rays/xhammer-skill.git .agents/xhammer-skill
 ```
 
-Then reference skills from `.agents/xhammer-skill/skills/`.
-
 ### Option 5: Fork and Customize
 
 1. Fork this repository
-2. Customize skills for your specific needs
+2. Customize skills for your needs
 3. Clone your fork into your projects
 
 ### Option 6: SkillKit (Multi-Agent)
 
-Use [SkillKit](https://github.com/rohitg00/skillkit) to install skills across multiple AI agents (Claude Code, Cursor, Copilot, etc.):
-
 ```bash
-# Install all skills
 npx skillkit install 4rays/xhammer-skill
-
-# Install specific skills
-npx skillkit install 4rays/xhammer-skill --skill xcode-mcp
-
-# List available skills
-npx skillkit install 4rays/xhammer-skill --list
 ```
 
 ## Quick Start
 
-### 1. Enable Xcode MCP Server
+### 1. Install xhammer
+
+```bash
+brew tap 4rays/tap
+brew install xhammer
+```
+
+### 2. Enable Xcode MCP
 
 Open **Xcode > Settings** (⌘,) → **Intelligence** → Enable **Xcode Tools** under Model Context Protocol.
-
-### 2. Load the Plugin in Claude Code
-
-The plugin bundles a `.mcp.json` that launches `xcrun mcpbridge`, so you do not need to run `claude mcp add` separately when using this repository as a Claude plugin.
 
 ### 3. Open Your Project
 
@@ -105,107 +83,56 @@ open MyApp.xcodeproj
 open MyApp.xcworkspace
 ```
 
-### 4. Grant Permission
+### 4. Ask Claude
 
-When the MCP client first connects, Xcode will display a permission dialog. Click **Allow**.
+Claude will automatically detect xhammer and use it for all Xcode tasks.
 
-## Manual Setup for Other Clients
+## Using xhammer
 
-### Claude Code without the plugin
+The skill uses the xhammer CLI via the Bash tool. The typical workflow:
+
+```bash
+# Get a tab ID first
+xhammer list-windows
+
+# Then use it in commands
+xhammer build windowtab1
+xhammer test windowtab1
+xhammer build-log windowtab1
+```
+
+## Available Commands
+
+| Category        | Commands                                                                           |
+| --------------- | ---------------------------------------------------------------------------------- |
+| **Status**      | `status`, `stop`, `restart`                                                        |
+| **Discovery**   | `list-windows`, `tools`, `tool-schema`, `call`                                     |
+| **Files**       | `read`, `write`, `update`, `ls`, `glob`, `grep`, `mkdir`, `rm`, `mv`               |
+| **Build & Test**| `build`, `build-log`, `test`, `test-list`, `test-run`, `issues`, `refresh-issues`  |
+| **Advanced**    | `exec`, `preview`, `docs`                                                          |
+
+Full reference: [skills/xhammer/SKILL.md](skills/xhammer/SKILL.md)
+
+## Xcode MCP Bridge (Alternative)
+
+If you prefer the MCP bridge over xhammer, set it up manually:
 
 ```bash
 claude mcp add --transport stdio xcode -- xcrun mcpbridge
-claude mcp list
 ```
 
-### Codex
-
-```bash
-codex mcp add xcode -- xcrun mcpbridge
-codex mcp list
-```
-
-## Available MCP Tools
-
-| Category            | Tools                                                                                                               |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **File Operations** | `XcodeRead`, `XcodeWrite`, `XcodeUpdate`, `XcodeGlob`, `XcodeGrep`, `XcodeLS`, `XcodeMakeDir`, `XcodeRM`, `XcodeMV` |
-| **Project Info**    | `XcodeListWindows`, `XcodeListNavigatorIssues`, `XcodeRefreshCodeIssuesInFile`                                      |
-| **Build & Test**    | `BuildProject`, `GetBuildLog`, `RunAllTests`, `RunSomeTests`, `GetTestList`                                         |
-| **Advanced**        | `ExecuteSnippet`, `RenderPreview`, `DocumentationSearch`                                                            |
-
-## Usage Examples
-
-### Build Project
-
-```
-1. XcodeListWindows() → Returns tabIdentifier
-2. BuildProject({ "tabIdentifier": "windowtab1" })
-```
-
-### Run Tests
-
-```
-1. XcodeListWindows()
-2. RunAllTests({ "tabIdentifier": "windowtab1" })
-```
-
-### Edit Files
-
-```
-XcodeUpdate({
-  "filePath": "Sources/MyView.swift",
-  "oldString": "Text(\"Hello\")",
-  "newString": "Text(\"Hello, World!\")"
-})
-```
-
-## Project Context
-
-Create an `AGENTS.md` or `CLAUDE.md` file in your project root:
-
-```markdown
-# Project Context
-
-## Build System
-
-- iOS 26 SwiftUI project
-- Main scheme: MyApp
-- Use BuildProject to compile
-
-## Testing
-
-- Run tests with RunAllTests
-```
-
-## Configuration
-
-Bundled plugin `.mcp.json`:
-
-```json
-{
-  "xhammer-skill": {
-    "command": "xcrun",
-    "args": ["mcpbridge"]
-  }
-}
-```
+Note: this requires approving a permission dialog in Xcode at the start of every new Claude Code session.
 
 ## Troubleshooting
 
-- **No tools available / Connection appears successful but tools don't appear**: This means the permission dialog was dismissed without granting access. In **Xcode > Settings > Intelligence > Model Context Protocol**, revoke access for the process, then reconnect to trigger the permission dialog again and click **Allow**.
-- **Connection fails**: Ensure Xcode is running with a project open, and Xcode Tools MCP is enabled in Settings
-- **"Tool XcodeListWindows has an output schema but did not return structured content"**: Bug in Xcode 26.3 RC 1. Upgrade to RC 2+
-- **Multiple Xcode instances**: The bridge auto-detects; or set `MCP_XCODE_PID` env var
-
-## Documentation
-
-Full tool reference: `skills/xcode-mcp/SKILL.md`
+- **xhammer not found**: Install with `brew tap 4rays/tap && brew install xhammer`
+- **No tab IDs**: Ensure Xcode is running with a project open
+- **Xcode MCP not enabled**: Go to **Xcode > Settings > Intelligence > Model Context Protocol**
+- **MCP permission denied**: Revoke the process in Xcode Settings and reconnect to retrigger the dialog
 
 ## Resources
 
-- [Apple Documentation](https://developer.apple.com/documentation/xcode/giving-external-agents-access-to-xcode)
-- [Rudrank's Guide](https://rudrank.com/exploring-xcode-using-mcp-tools-cursor-external-clients)
+- [Apple MCP Documentation](https://developer.apple.com/documentation/xcode/giving-external-agents-access-to-xcode)
 
 ## License
 

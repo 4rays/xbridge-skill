@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Marketplace for the xhammer-skill Claude Code plugin.",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "xhammer-skill",
       "source": "./",
-      "description": "Bundles Apple's Xcode MCP bridge for Claude Code and documents the Xcode tools workflow.",
-      "version": "1.1.0",
+      "description": "Skill for interacting with Xcode projects via the xhammer CLI or the Xcode MCP bridge.",
+      "version": "2.0.0",
       "author": {
         "name": "Reda Lemeden",
         "email": "git@redalemeden.com"
@@ -23,7 +23,7 @@
       "license": "MIT",
       "keywords": [
         "xcode",
-        "mcp",
+        "xhammer",
         "ios",
         "macos",
         "swift",
@@ -33,9 +33,9 @@
       "category": "Developer Tools",
       "tags": [
         "xcode",
+        "xhammer",
         "swift",
-        "apple",
-        "mcp"
+        "apple"
       ]
     }
   ]

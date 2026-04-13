@@ -1,6 +1,0 @@
-{
-  "xhammer-skill": {
-    "command": "xcrun",
-    "args": ["mcpbridge"]
-  }
-}
