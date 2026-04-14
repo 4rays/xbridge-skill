@@ -1,4 +1,5 @@
 ---
+name: xhammer
 description: "Use when working with Xcode projects — building, testing, reading files, searching code, or running SwiftUI previews. Triggers include: 'build Xcode project', 'run tests', 'xhammer', 'Xcode MCP', or any Xcode development task."
 ---
 
@@ -99,11 +100,11 @@ This returns identifiers like `windowtab1`, `windowtab2`. Use the relevant one i
 
 Build, test, and log commands can run for minutes on large projects. Always pass `--timeout` when calling these via `xhammer call`, or set a generous shell timeout. Start conservative and scale up:
 
-| Project size | Suggested timeout |
-|---|---|
-| Small (toy/sample) | 1 min |
-| Medium (single app) | 5 min |
-| Large (monorepo/many targets) | 15+ min |
+| Project size                  | Suggested timeout |
+| ----------------------------- | ----------------- |
+| Small (toy/sample)            | 1 min             |
+| Medium (single app)           | 5 min             |
+| Large (monorepo/many targets) | 15+ min           |
 
 Commands most likely to need a timeout: `build`, `test`, `test-run`, `build-log`, `refresh-issues`.
 
@@ -113,54 +114,54 @@ Commands most likely to need a timeout: `build`, `test`, `test-run`, `build-log`
 
 ### Daemon & Status
 
-| Command | Description |
-|---------|-------------|
-| `xhammer status` | Show daemon and bridge status |
-| `xhammer stop` | Stop the daemon |
-| `xhammer restart` | Restart the Xcode MCP bridge |
+| Command           | Description                   |
+| ----------------- | ----------------------------- |
+| `xhammer status`  | Show daemon and bridge status |
+| `xhammer stop`    | Stop the daemon               |
+| `xhammer restart` | Restart the Xcode MCP bridge  |
 
 ### Discovery
 
-| Command | Description |
-|---------|-------------|
-| `xhammer tools` | List all MCP tools from Xcode |
-| `xhammer tool-schema <ToolName>` | Show input schema for a tool |
+| Command                          | Description                               |
+| -------------------------------- | ----------------------------------------- |
+| `xhammer tools`                  | List all MCP tools from Xcode             |
+| `xhammer tool-schema <ToolName>` | Show input schema for a tool              |
 | `xhammer call <ToolName> [json]` | Call any MCP tool with optional JSON args |
-| `xhammer list-windows` | List open Xcode windows and tabs |
+| `xhammer list-windows`           | List open Xcode windows and tabs          |
 
 ### File Operations
 
-| Command | Description |
-|---------|-------------|
-| `xhammer read <file> <tab-id>` | Read a file |
-| `xhammer write <tab-id> <path> <content>` | Create or overwrite a file |
-| `xhammer update <tab-id> <path> <old> <new>` | Replace text in a file |
-| `xhammer ls <tab-id> <path>` | List files at path |
-| `xhammer glob <tab-id> [pattern]` | Find files matching a pattern |
-| `xhammer grep <pattern> <tab-id> [path]` | Search file contents |
-| `xhammer mkdir <tab-id> <path>` | Create a directory |
-| `xhammer rm <tab-id> <path>` | Remove a file or directory |
-| `xhammer mv <tab-id> <src> <dst>` | Move or rename a file |
+| Command                                      | Description                   |
+| -------------------------------------------- | ----------------------------- |
+| `xhammer read <file> <tab-id>`               | Read a file                   |
+| `xhammer write <tab-id> <path> <content>`    | Create or overwrite a file    |
+| `xhammer update <tab-id> <path> <old> <new>` | Replace text in a file        |
+| `xhammer ls <tab-id> <path>`                 | List files at path            |
+| `xhammer glob <tab-id> [pattern]`            | Find files matching a pattern |
+| `xhammer grep <pattern> <tab-id> [path]`     | Search file contents          |
+| `xhammer mkdir <tab-id> <path>`              | Create a directory            |
+| `xhammer rm <tab-id> <path>`                 | Remove a file or directory    |
+| `xhammer mv <tab-id> <src> <dst>`            | Move or rename a file         |
 
 ### Build & Test
 
-| Command | Description |
-|---------|-------------|
-| `xhammer build <tab-id>` | Build the project |
-| `xhammer build-log <tab-id>` | Show the build log |
-| `xhammer test <tab-id>` | Run all tests |
-| `xhammer test-list <tab-id>` | List available tests |
-| `xhammer test-run <tab-id> <target> <identifier>` | Run a specific test |
-| `xhammer issues <tab-id>` | Show build issues |
-| `xhammer refresh-issues <tab-id> <file>` | Refresh compiler diagnostics for a file |
+| Command                                           | Description                             |
+| ------------------------------------------------- | --------------------------------------- |
+| `xhammer build <tab-id>`                          | Build the project                       |
+| `xhammer build-log <tab-id>`                      | Show the build log                      |
+| `xhammer test <tab-id>`                           | Run all tests                           |
+| `xhammer test-list <tab-id>`                      | List available tests                    |
+| `xhammer test-run <tab-id> <target> <identifier>` | Run a specific test                     |
+| `xhammer issues <tab-id>`                         | Show build issues                       |
+| `xhammer refresh-issues <tab-id> <file>`          | Refresh compiler diagnostics for a file |
 
 ### Advanced
 
-| Command | Description |
-|---------|-------------|
-| `xhammer exec <tab-id> <file> <purpose> <code>` | Execute a Swift code snippet |
-| `xhammer preview <tab-id> <file> [index]` | Render a SwiftUI preview |
-| `xhammer docs <query> [framework]` | Search Apple Developer Documentation |
+| Command                                         | Description                          |
+| ----------------------------------------------- | ------------------------------------ |
+| `xhammer exec <tab-id> <file> <purpose> <code>` | Execute a Swift code snippet         |
+| `xhammer preview <tab-id> <file> [index]`       | Render a SwiftUI preview             |
+| `xhammer docs <query> [framework]`              | Search Apple Developer Documentation |
 
 ---
 
@@ -248,13 +249,16 @@ Add an `AGENTS.md` or `CLAUDE.md` in your project root:
 # Project Context
 
 ## Build System
+
 - iOS 18 SwiftUI project
 - Main scheme: MyApp
 
 ## Testing
+
 - Test scheme: MyAppTests
 
 ## Project Structure
+
 - Sources in: Sources/
 - Tests in: Tests/
 ```
