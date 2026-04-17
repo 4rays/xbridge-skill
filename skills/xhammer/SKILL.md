@@ -7,8 +7,6 @@ description: "Use when working with Xcode projects — building, testing, readin
 
 This skill enables AI agents to interact with Xcode projects. The preferred method is the **xhammer CLI**, which works without per-session permission dialogs. The Xcode MCP bridge (`xcrun mcpbridge`) is supported as a manual fallback but requires approving a dialog in Xcode at the start of every new session.
 
----
-
 ## Step 1: Check for xhammer
 
 Before attempting any Xcode task, run:
@@ -45,8 +43,6 @@ If not found, ask the user:
 >
 > **Option B:** Set up the Xcode MCP bridge manually — requires approving a permission dialog in Xcode at the start of every Claude Code session.
 
----
-
 ## Option A: Install xhammer
 
 ```bash
@@ -63,8 +59,6 @@ xhammer status
 Enable Xcode MCP: open **Xcode > Settings** (⌘,) → **Intelligence** → enable **Xcode Tools** under Model Context Protocol.
 
 Then open your project in Xcode and proceed to [Using xhammer](#using-xhammer).
-
----
 
 ## Option B: Xcode MCP Bridge (manual setup)
 
@@ -94,8 +88,6 @@ When the client first connects, Xcode shows a permission dialog — click **Allo
 
 MCP tools available: `XcodeRead`, `XcodeWrite`, `XcodeUpdate`, `XcodeGlob`, `XcodeGrep`, `XcodeLS`, `XcodeMakeDir`, `XcodeRM`, `XcodeMV`, `XcodeListWindows`, `XcodeListNavigatorIssues`, `XcodeRefreshCodeIssuesInFile`, `BuildProject`, `GetBuildLog`, `RunAllTests`, `RunSomeTests`, `GetTestList`, `ExecuteSnippet`, `RenderPreview`, `DocumentationSearch`.
 
----
-
 ## Using xhammer
 
 ### Prerequisites
@@ -114,8 +106,6 @@ xhammer list-windows
 
 This returns identifiers like `windowtab1`, `windowtab2`. Use the relevant one in subsequent commands.
 
----
-
 ## Timeouts
 
 Build, test, and log commands can run for minutes on large projects. Always pass `--timeout` when calling these via `xhammer call`, or set a generous shell timeout. Start conservative and scale up:
@@ -127,8 +117,6 @@ Build, test, and log commands can run for minutes on large projects. Always pass
 | Large (monorepo/many targets) | 15+ min           |
 
 Commands most likely to need a timeout: `build`, `test`, `test-run`, `build-log`, `refresh-issues`.
-
----
 
 ## Commands Reference
 
@@ -182,8 +170,6 @@ Commands most likely to need a timeout: `build`, `test`, `test-run`, `build-log`
 | `xhammer exec <tab-id> <file> <purpose> <code>` | Execute a Swift code snippet         |
 | `xhammer preview <tab-id> <file> [index]`       | Render a SwiftUI preview             |
 | `xhammer docs <query> [framework]`              | Search Apple Developer Documentation |
-
----
 
 ## Common Workflows
 
@@ -243,8 +229,6 @@ xhammer docs "SwiftUI List" SwiftUI
 
 > **Note:** `docs` output can be large (30KB+). Use narrow, specific queries and pass a framework name to limit results.
 
----
-
 ## Troubleshooting
 
 **xhammer not found**
@@ -261,8 +245,6 @@ Go to **Xcode > Settings > Intelligence > Model Context Protocol** and enable Xc
 
 **MCP permission denied (bridge fallback)**
 In Xcode Settings, revoke the process entry under MCP, reconnect to trigger the dialog, then click **Allow**.
-
----
 
 ## Project Context
 
@@ -285,8 +267,6 @@ Add an `AGENTS.md` or `CLAUDE.md` in your project root:
 - Sources in: Sources/
 - Tests in: Tests/
 ```
-
----
 
 ## Resources
 
