@@ -1,6 +1,6 @@
 # xhammer-skill
 
-Claude Code plugin and companion skill for interacting with Xcode projects.
+Agent skill for interacting with Xcode projects.
 
 The preferred integration is the **xhammer CLI** — a standalone tool that communicates with Xcode without triggering a permission dialog on every new session. The Xcode MCP bridge (`xcrun mcpbridge`) is supported as a manual fallback.
 
@@ -36,6 +36,8 @@ Or load directly from a local path:
 ```bash
 claude --plugin-dir /path/to/xhammer-skill
 ```
+
+> Claude Code specific. For other agents, use Option 1 or Option 3.
 
 ### Option 3: Clone and Copy
 
@@ -83,9 +85,9 @@ open MyApp.xcodeproj
 open MyApp.xcworkspace
 ```
 
-### 4. Ask Claude
+### 4. Start Your Agent
 
-Claude will automatically detect xhammer and use it for all Xcode tasks.
+Your agent will automatically detect xhammer and use it for all Xcode tasks.
 
 ## Using xhammer
 
@@ -115,13 +117,13 @@ Full reference: [skills/xhammer/SKILL.md](skills/xhammer/SKILL.md)
 
 ## Xcode MCP Bridge (Alternative)
 
-If you prefer the MCP bridge over xhammer, set it up manually:
+If you prefer the MCP bridge over xhammer, add it to your agent manually. For Claude Code:
 
 ```bash
 claude mcp add --transport stdio xcode -- xcrun mcpbridge
 ```
 
-Note: this requires approving a permission dialog in Xcode at the start of every new Claude Code session.
+Note: this requires approving a permission dialog in Xcode at the start of every new session.
 
 ## Troubleshooting
 

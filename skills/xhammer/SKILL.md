@@ -17,7 +17,25 @@ Before attempting any Xcode task, run:
 which xhammer
 ```
 
-If found, skip to [Using xhammer](#using-xhammer).
+If found, verify the bridge is running:
+
+```bash
+xhammer status
+```
+
+If the output indicates the bridge is not running, tell the user:
+
+> **The Xcode MCP bridge isn't running.** Please make sure Xcode is open with a project, then run:
+>
+> ```
+> xhammer restart
+> ```
+>
+> If this is your first time connecting, Xcode may show a permission dialog — click **Allow** to proceed.
+
+Wait for the user to confirm before continuing.
+
+If found and bridge is running, skip to [Using xhammer](#using-xhammer).
 
 If not found, ask the user:
 
@@ -41,6 +59,8 @@ Confirm the install:
 ```bash
 xhammer status
 ```
+
+Enable Xcode MCP: open **Xcode > Settings** (⌘,) → **Intelligence** → enable **Xcode Tools** under Model Context Protocol.
 
 Then open your project in Xcode and proceed to [Using xhammer](#using-xhammer).
 
@@ -226,6 +246,9 @@ xhammer docs "SwiftUI List" SwiftUI
 ---
 
 ## Troubleshooting
+
+**xhammer not found**
+Install with `brew tap 4rays/tap && brew install xhammer`.
 
 **`xhammer status` shows daemon not running**
 Run `xhammer restart` and ensure Xcode is open with a project.
