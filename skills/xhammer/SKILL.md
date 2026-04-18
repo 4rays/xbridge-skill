@@ -160,7 +160,7 @@ Commands most likely to need a timeout: `build`, `test`, `test-run`, `build-log`
 | `xhammer test <tab-id>`                           | Run all tests                           |
 | `xhammer test-list <tab-id>`                      | List available tests                    |
 | `xhammer test-run <tab-id> <target> <identifier>` | Run a specific test                     |
-| `xhammer issues <tab-id>`                         | Show build issues                       |
+| `xhammer issues <tab-id> [severity]`              | Show build issues (severity: `error`\|`warning`\|`remark`, default: `error`) |
 | `xhammer refresh-issues <tab-id> <file>`          | Refresh compiler diagnostics for a file |
 
 ### Advanced
@@ -213,7 +213,13 @@ xhammer list-windows
 # → windowtab1  /path/to/Project.xcodeproj
 
 xhammer issues windowtab1
-# Lists all current build errors and warnings
+# Lists errors only (default)
+
+xhammer issues windowtab1 warning
+# Lists warnings and above
+
+xhammer issues windowtab1 remark
+# Lists everything
 
 # Refresh diagnostics for a specific file first if issues are stale.
 # Path is relative to workspace root (ProjectName/Path/To/File.swift):
