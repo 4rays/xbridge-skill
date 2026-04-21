@@ -1,8 +1,8 @@
-# xhammer-skill
+# xbridge-skill
 
 Agent skill for interacting with Xcode projects.
 
-The preferred integration is the **xhammer CLI** — a standalone tool that communicates with Xcode without triggering a permission dialog on every new session. The Xcode MCP bridge (`xcrun mcpbridge`) is supported as a manual fallback.
+The preferred integration is the **xbridge CLI** — a standalone tool that communicates with Xcode without triggering a permission dialog on every new session. The Xcode MCP bridge (`xcrun mcpbridge`) is supported as a manual fallback.
 
 ## Installation
 
@@ -10,13 +10,13 @@ The preferred integration is the **xhammer CLI** — a standalone tool that comm
 
 ```bash
 # Install all skills
-npx skills add 4rays/xhammer-skill
+npx skills add 4rays/xbridge-skill
 
 # Install specific skills
-npx skills add 4rays/xhammer-skill --skill xhammer
+npx skills add 4rays/xbridge-skill --skill xbridge
 
 # List available skills
-npx skills add 4rays/xhammer-skill --list
+npx skills add 4rays/xbridge-skill --list
 ```
 
 This automatically installs to your `.agents/skills/` directory (and symlinks into `.claude/skills/` for Claude Code compatibility).
@@ -25,16 +25,16 @@ This automatically installs to your `.agents/skills/` directory (and symlinks in
 
 ```bash
 # Add the marketplace
-/plugin marketplace add 4rays/xhammer-skill
+/plugin marketplace add 4rays/xbridge-skill
 
 # Install the plugin
-/plugin install xhammer-skill
+/plugin install xbridge-skill
 ```
 
 Or load directly from a local path:
 
 ```bash
-claude --plugin-dir /path/to/xhammer-skill
+claude --plugin-dir /path/to/xbridge-skill
 ```
 
 > Claude Code specific. For other agents, use Option 1 or Option 3.
@@ -42,14 +42,14 @@ claude --plugin-dir /path/to/xhammer-skill
 ### Option 3: Clone and Copy
 
 ```bash
-git clone https://github.com/4rays/xhammer-skill.git
-cp -r xhammer-skill/skills/* .agents/skills/
+git clone https://github.com/4rays/xbridge-skill.git
+cp -r xbridge-skill/skills/* .agents/skills/
 ```
 
 ### Option 4: Git Submodule
 
 ```bash
-git submodule add https://github.com/4rays/xhammer-skill.git .agents/xhammer-skill
+git submodule add https://github.com/4rays/xbridge-skill.git .agents/xbridge-skill
 ```
 
 ### Option 5: Fork and Customize
@@ -61,16 +61,16 @@ git submodule add https://github.com/4rays/xhammer-skill.git .agents/xhammer-ski
 ### Option 6: SkillKit (Multi-Agent)
 
 ```bash
-npx skillkit install 4rays/xhammer-skill
+npx skillkit install 4rays/xbridge-skill
 ```
 
 ## Quick Start
 
-### 1. Install xhammer
+### 1. Install xbridge
 
 ```bash
 brew tap 4rays/tap
-brew install xhammer
+brew install xbridge
 ```
 
 ### 2. Enable Xcode MCP
@@ -87,20 +87,20 @@ open MyApp.xcworkspace
 
 ### 4. Start Your Agent
 
-Your agent will automatically detect xhammer and use it for all Xcode tasks.
+Your agent will automatically detect xbridge and use it for all Xcode tasks.
 
-## Using xhammer
+## Using xbridge
 
-The skill uses the xhammer CLI via the Bash tool. The typical workflow:
+The skill uses the xbridge CLI via the Bash tool. The typical workflow:
 
 ```bash
 # Get a tab ID first
-xhammer list-windows
+xbridge list-windows
 
 # Then use it in commands
-xhammer build windowtab1
-xhammer test windowtab1
-xhammer build-log windowtab1
+xbridge build windowtab1
+xbridge test windowtab1
+xbridge build-log windowtab1
 ```
 
 ## Available Commands
@@ -113,11 +113,11 @@ xhammer build-log windowtab1
 | **Build & Test**| `build`, `build-log`, `test`, `test-list`, `test-run`, `issues`, `refresh-issues`  |
 | **Advanced**    | `exec`, `preview`, `docs`                                                          |
 
-Full reference: [skills/xhammer/SKILL.md](skills/xhammer/SKILL.md)
+Full reference: [skills/xbridge/SKILL.md](skills/xbridge/SKILL.md)
 
 ## Xcode MCP Bridge (Alternative)
 
-If you prefer the MCP bridge over xhammer, add it to your agent manually. For Claude Code:
+If you prefer the MCP bridge over xbridge, add it to your agent manually. For Claude Code:
 
 ```bash
 claude mcp add --transport stdio xcode -- xcrun mcpbridge
@@ -127,7 +127,7 @@ Note: this requires approving a permission dialog in Xcode at the start of every
 
 ## Troubleshooting
 
-- **xhammer not found**: Install with `brew tap 4rays/tap && brew install xhammer`
+- **xbridge not found**: Install with `brew tap 4rays/tap && brew install xbridge`
 - **No tab IDs**: Ensure Xcode is running with a project open
 - **Xcode MCP not enabled**: Go to **Xcode > Settings > Intelligence > Model Context Protocol**
 - **MCP permission denied**: Revoke the process in Xcode Settings and reconnect to retrigger the dialog

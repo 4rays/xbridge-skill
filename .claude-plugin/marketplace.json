@@ -1,29 +1,29 @@
 {
-  "name": "xhammer-skill-marketplace",
+  "name": "xbridge-skill-marketplace",
   "owner": {
     "name": "Reda Lemeden",
     "email": "git@redalemeden.com"
   },
   "metadata": {
-    "description": "Marketplace for the xhammer-skill Claude Code plugin.",
+    "description": "Marketplace for the xbridge-skill Claude Code plugin.",
     "version": "2.0.0"
   },
   "plugins": [
     {
-      "name": "xhammer-skill",
+      "name": "xbridge-skill",
       "source": "./",
-      "description": "Skill for interacting with Xcode projects via the xhammer CLI or the Xcode MCP bridge.",
+      "description": "Skill for interacting with Xcode projects via the xbridge CLI or the Xcode MCP bridge.",
       "version": "2.0.0",
       "author": {
         "name": "Reda Lemeden",
         "email": "git@redalemeden.com"
       },
-      "homepage": "https://github.com/4rays/xhammer-skill",
-      "repository": "https://github.com/4rays/xhammer-skill",
+      "homepage": "https://github.com/4rays/xbridge-skill",
+      "repository": "https://github.com/4rays/xbridge-skill",
       "license": "MIT",
       "keywords": [
         "xcode",
-        "xhammer",
+        "xbridge",
         "ios",
         "macos",
         "swift",
@@ -33,7 +33,7 @@
       "category": "Developer Tools",
       "tags": [
         "xcode",
-        "xhammer",
+        "xbridge",
         "swift",
         "apple"
       ]

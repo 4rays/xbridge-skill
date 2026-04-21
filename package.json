@@ -1,10 +1,10 @@
 {
-  "name": "xhammer-skill",
+  "name": "xbridge-skill",
   "version": "2.0.0",
-  "description": "Skill for interacting with Xcode projects via the xhammer CLI or the Xcode MCP bridge.",
+  "description": "Skill for interacting with Xcode projects via the xbridge CLI or the Xcode MCP bridge.",
   "main": "install.js",
   "bin": {
-    "xhammer-skill-install": "./install.js"
+    "xbridge-skill-install": "./install.js"
   },
   "scripts": {
     "install": "node install.js",
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "xcode",
-    "xhammer",
+    "xbridge",
     "ios",
     "macos",
     "swift",
@@ -28,13 +28,13 @@
     "email": "git@redalemeden.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/4rays/xhammer-skill",
+  "homepage": "https://github.com/4rays/xbridge-skill",
   "repository": {
     "type": "git",
-    "url": "https://github.com/4rays/xhammer-skill.git"
+    "url": "https://github.com/4rays/xbridge-skill.git"
   },
   "bugs": {
-    "url": "https://github.com/4rays/xhammer-skill/issues"
+    "url": "https://github.com/4rays/xbridge-skill/issues"
   },
   "files": [
     "skills/",

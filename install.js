@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * xhammer-skill Installer
+ * xbridge-skill Installer
  * Supports multiple installation methods:
- * 1. npx skills add 4rays/xhammer-skill
+ * 1. npx skills add 4rays/xbridge-skill
  * 2. /plugin marketplace add / /plugin install
  * 3. Clone and copy
  * 4. Git submodule
  * 5. Fork and customize
- * 6. npx skillkit install 4rays/xhammer-skill
+ * 6. npx skillkit install 4rays/xbridge-skill
  */
 
 const fs = require('fs');
@@ -97,7 +97,7 @@ function listSkills(skillsDir) {
 }
 
 function install() {
-  console.log('📦 xhammer-skill Installer\n');
+  console.log('📦 xbridge-skill Installer\n');
 
   const dirs = getTargetDirs();
   const scriptDir = __dirname;

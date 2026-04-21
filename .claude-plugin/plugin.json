@@ -1,17 +1,17 @@
 {
-  "name": "xhammer-skill",
+  "name": "xbridge-skill",
   "version": "2.0.0",
-  "description": "Skill for interacting with Xcode projects via the xhammer CLI or the Xcode MCP bridge.",
+  "description": "Skill for interacting with Xcode projects via the xbridge CLI or the Xcode MCP bridge.",
   "author": {
     "name": "Reda Lemeden",
     "email": "git@redalemeden.com"
   },
   "license": "MIT",
-  "homepage": "https://github.com/4rays/xhammer-skill",
-  "repository": "https://github.com/4rays/xhammer-skill",
+  "homepage": "https://github.com/4rays/xbridge-skill",
+  "repository": "https://github.com/4rays/xbridge-skill",
   "keywords": [
     "xcode",
-    "xhammer",
+    "xbridge",
     "ios",
     "macos",
     "swift",
